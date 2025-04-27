@@ -1,0 +1,65 @@
+<?php
+
+return [
+    'plural' => 'Subclass',
+    'singular' => 'Subclass',
+    'singular2' => 'Subclass',
+    'empty' => 'There is no subcategory',
+    'select' => 'Choose',
+    'select-type' => 'everyone',
+    'perPage' => 'Number of results per page',
+    'filter' => 'Search for a subcategory',
+    'actions' => [
+        'list' => 'view all',
+        'show' => 'Show',
+        'create' => 'Add New',
+        'edit' => 'Edit',
+        'delete' => 'delete',
+        'restore' => 'Recovery',
+        'save' => 'save',
+        'filter' => 'Search',
+        'back' => 'Go back',
+    ],
+    'messages' => [
+        'created' => 'The subcategory has been added successfully.',
+        'updated' => 'The subcategory has been modified successfully.',
+        'deleted' => 'The subcategory has been successfully deleted.',
+        'restored' => 'The subclass has been successfully restored.',
+        'deleted_bulk' => 'The specified sub-category has been deleted successfully.',
+    ],
+    'attributes' => [
+        'name' => 'Subclass name',
+        '%name%' => 'Subclass name',
+    ],
+    'default' => [
+        'name' => 'Subclass name',
+    ],
+    'dialogs' => [
+        'delete' => [
+            'title' => 'warning !',
+            'info' => 'Are you sure you want to delete the subcategory?',
+            'confirm' => 'delete',
+            'cancel' => 'cancellation',
+        ],
+        'restore' => [
+            'title' => 'warning !',
+            'info' => 'Are you sure you want to restore the subcategory?',
+            'confirm' => 'Recovery',
+            'cancel' => 'cancellation',
+        ],
+    ],
+    'save' => 'save',
+    'options' => 'commands',
+    'created_at' => 'Date created',
+    'advanced_filter' => 'advanced search',
+    'search' => 'Search',
+    'cancel' => 'Cancel',
+    'delete_selected' => 'Clear selected',
+    'restore_trashed' => 'Return the selected one',
+    'unarchived' => 'Show what is hidden',
+    'description' => 'the description',
+    'attachments' => 'attachments',
+    'file' => 'file',
+    'image' => 'Image',
+    'category' => 'الفئة'
+];

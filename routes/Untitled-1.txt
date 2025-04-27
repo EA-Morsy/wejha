@@ -1,0 +1,39 @@
+
+server {
+
+        root /var/www/special-path.com/public_html;
+        index index.html index.htm index.nginx-debian.html;
+
+        server_name special-path.com www.special-path.com;
+
+        location / {
+	    try_files $uri $uri/ /index.html;
+        }
+
+		
+    access_log /var/log/nginx/special-path.com.access.log;
+    error_log /var/log/nginx/special-path.com.error.log;
+
+
+    # listen [::]:443 ssl ipv6only=on; # managed by Certbot
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/api.special-path.com/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/api.special-path.com/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+}
+server {
+    if ($host = special-path.com) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+        listen 80;
+        listen [::]:80;
+
+        server_name special-path.com www.special-path.com;
+    return 404; # managed by Certbot
+
+
+}
