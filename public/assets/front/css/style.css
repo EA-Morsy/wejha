@@ -89,7 +89,7 @@ a{ text-decoration: none;}
 .bg-gray{
     background: #f2f4f4;
 }
-.bg-primary,.btn-primary{ background: #7367F0 !important; }
+.bg-primary,.btn-primary{ background: #0d0d0d !important; }
 .font-14{ font-size: 14px !important; }
 .font-16{ font-size: 16px !important; }
 .navbar-light .navbar-nav .nav-link {

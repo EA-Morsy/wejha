@@ -41,7 +41,7 @@ class RoleController extends Controller
         return view('admin.pages.roles.create_edit', get_defined_vars());
     }
 
-    public function edit($id): View
+    public function edit($id)
     {
         $item = $this->role->findOrFail($id);
         $seo['title'] = $item->name;

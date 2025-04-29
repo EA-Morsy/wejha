@@ -39,26 +39,16 @@
                 </a>
             </li>
             @endcan
-
-            @can('coupons.view')
+            @can('parteners.view')
             <li>
-                <a class="d-flex align-items-center" href="{{ route('admin.coupons.index') }} ">
-                    <i data-feather="codesandbox"></i>
-                    <span class="menu-item text-truncate" data-i18n="List">{{ __('admin.coupons') }}</span>
+                <a class="d-flex align-items-center" href="{{ route('admin.parteners.index') }} ">
+                    <i data-feather="users"></i>
+                    <span class="menu-item text-truncate" data-i18n="List">{{ __('admin.parteners') }}</span>
                 </a>
             </li>
             @endcan
 
-
-            {{-- @can('contacts.view')
-            <li>
-                <a class="d-flex align-items-center" href="{{ route('admin.contacts.index') }} ">
-                    <i data-feather="phone"></i>
-                    <span class="menu-item text-truncate" data-i18n="List">{{ __('admin.contacts') }}</span>
-                </a>
-            </li>
-            @endcan --}}
-
+        
              @can('users.view')
             <li>
                 <a class="d-flex align-items-center" href="{{ route('admin.users.index') }} ">
@@ -67,15 +57,7 @@
                 </a>
             </li>
             @endcan
-            @can('cities.view')
-            <li>
-                <a class="d-flex align-items-center" href="{{ route('admin.cities.index') }} ">
-                    <i data-feather="globe"></i>
-                    <span class="menu-item text-truncate" data-i18n="List">{{ __('admin.cities') }}</span>
-                </a>
-            </li>
-            @endcan
-             @can('roles.view')
+            @can('roles.view')
             <li>
                 <a class="d-flex align-items-center" href="{{ route('admin.roles.index') }} ">
                     <i data-feather="lock"></i>

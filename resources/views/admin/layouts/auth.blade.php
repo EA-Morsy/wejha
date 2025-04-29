@@ -32,6 +32,7 @@
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="{{ $assetsPath }}/css/custom.css">
     <link rel="stylesheet" type="text/css" href="{{ $assetsPath }}/css-rtl/custom-rtl.css">
+    <link rel="stylesheet" type="text/css" href="{{ $assetsPath }}/css/custom-colors.css">
     <!-- END: Custom CSS-->
 
 </head>

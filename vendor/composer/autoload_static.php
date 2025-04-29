@@ -833,6 +833,7 @@ class ComposerStaticInit4e82213ddc99f52cf7bdccf836cba85b
         'App\\Models\\Company' => __DIR__ . '/../..' . '/app/Models/Company.php',
         'App\\Models\\Contact' => __DIR__ . '/../..' . '/app/Models/Contact.php',
         'App\\Models\\Coupon' => __DIR__ . '/../..' . '/app/Models/Coupon.php',
+        'App\\Models\\Partener' => __DIR__ . '/../..' . '/app/Models/Partener.php',
         'App\\Models\\Permissions' => __DIR__ . '/../..' . '/app/Models/Permissions.php',
         'App\\Models\\Rate' => __DIR__ . '/../..' . '/app/Models/Rate.php',
         'App\\Models\\ResetCodePassword' => __DIR__ . '/../..' . '/app/Models/ResetCodePassword.php',

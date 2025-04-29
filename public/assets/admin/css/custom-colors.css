@@ -1,0 +1,252 @@
+:root {
+  --bs-purple: #0d0d0d !important;
+  --bs-primary: #0d0d0d !important;
+  --bs-secondary: #00ada3 !important;
+}
+
+/* Base colors */
+.bg-primary {
+  background-color: #0d0d0d !important;
+}
+
+.bg-secondary {
+  background-color: #00ada3 !important;
+}
+
+.border-primary {
+  border-color: #0d0d0d !important;
+}
+
+.text-primary {
+  color: #0d0d0d !important;
+}
+
+.text-secondary {
+  color: #00ada3 !important;
+}
+
+/* Button styles */
+.btn-primary {
+  border-color: #0d0d0d !important;
+  background-color: #0d0d0d !important;
+}
+
+.btn-secondary {
+  border-color: #00ada3 !important;
+  background-color: #00ada3 !important;
+}
+
+.btn-outline-primary {
+  color: #0d0d0d !important;
+  border-color: #0d0d0d !important;
+}
+
+.btn-outline-primary:hover {
+  background-color: #0d0d0d !important;
+  color: #fff !important;
+}
+
+.btn-outline-secondary {
+  color: #00ada3 !important;
+  border-color: #00ada3 !important;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #00ada3 !important;
+  color: #fff !important;
+}
+
+/* Hover effects */
+.nav-link:hover, .nav-link:focus {
+  color: #0d0d0d !important;
+}
+
+.nav-link.active {
+  color: #0d0d0d !important;
+}
+
+.page-item.active .page-link {
+  background-color: #0d0d0d !important;
+  border-color: #0d0d0d !important;
+}
+
+.form-check-input:checked {
+  background-color: #0d0d0d !important;
+  border-color: #0d0d0d !important;
+}
+
+.dropdown-item.active, .dropdown-item:active {
+  background-color: #0d0d0d !important;
+}
+
+.swal2-styled.swal2-confirm {
+  background-color: #0d0d0d !important;
+}
+
+.custom-control-input:checked ~ .custom-control-label::before,
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: #0d0d0d !important;
+  border-color: #0d0d0d !important;
+}
+
+.card.bg-gradient-primary {
+  background: linear-gradient(45deg, #000000, #0d0d0d) !important;
+}
+
+.card.bg-gradient-secondary {
+  background: linear-gradient(45deg, #008a82, #00ada3) !important;
+}
+
+.progress-bar {
+  background-color: #0d0d0d !important;
+}
+
+/* Login Page Specific Styles */
+.card-body {
+  background-color: #0d0d0d;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 173, 163, 0.1);
+}
+
+.form-control {
+  background-color: #1d1d1d;
+  color: #fff;
+  border: none;
+  border-bottom: 1px solid #00ada3 !important;
+}
+
+.form-control:focus {
+  border-color: #00ada3;
+  box-shadow: 0 0 0 0.2rem rgba(0, 173, 163, 0.25);
+}
+
+.btn-login {
+  background-color: #00ada3;
+  color: #0d0d0d;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.text-light {
+  color: #fff !important;
+}
+
+/* Main menu and dashboard elements */
+.main-menu.menu-dark .navigation > li.active > a {
+  background: linear-gradient(118deg, #0d0d0d, rgba(13, 13, 13, 0.7));
+  box-shadow: 0 0 10px 1px rgba(13, 13, 13, 0.7);
+}
+
+.main-menu.menu-dark .navigation li.active > a {
+  color: #00ada3 !important;
+}
+
+.main-menu.menu-dark .navigation > li .active > a {
+  color: #0d0d0d !important;
+}
+
+.main-menu.menu-dark .navigation > li.open > a, 
+.main-menu.menu-dark .navigation > li.sidebar-group-active > a {
+  color: #0d0d0d !important;
+}
+
+.main-menu.menu-dark .navigation > li ul .active > a {
+  color: #fff !important;
+}
+
+.main-menu.menu-dark .navigation > li ul .active {
+  background: linear-gradient(118deg, #0d0d0d, rgba(13, 13, 13, 0.7));
+  box-shadow: 0 0 10px 1px rgba(13, 13, 13, 0.7);
+}
+
+/* Badge colors */
+.badge.badge-light-primary {
+  background-color: rgba(13, 13, 13, 0.12);
+  color: #0d0d0d !important;
+}
+
+.badge.badge-light-secondary {
+  background-color: rgba(0, 173, 163, 0.12);
+  color: #00ada3 !important;
+}
+
+/* Login specific styles for checkbox and form elements */
+.form-check-input.teal-checkbox:checked {
+  background-color: #00ada3 !important;
+  border-color: #00ada3 !important;
+}
+
+.form-check-input:focus {
+  border-color: #00ada3 !important;
+  box-shadow: 0 0 0 0.25rem rgba(0, 173, 163, 0.25) !important;
+}
+
+.form-check-input.teal-checkbox {
+  background-color: #1d1d1d;
+  border-color: #00ada3;
+}
+
+/* Fix the input group border alignment */
+.input-group-text {
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.input-group-text:focus-within {
+  border-color: #00ada3 !important;
+}
+
+/* Ensure the password field and eye icon have the same border style */
+.form-password-toggle .input-group-text {
+  border-bottom: 1px solid #00ada3 !important;
+  padding-bottom: 0.47rem;
+}
+
+/* Link hover effects */
+a:hover {
+  color: #0d0d0d !important;
+}
+
+/* Tab and pill styles */
+.nav-tabs .nav-link:hover {
+  border-color: #0d0d0d !important;
+}
+
+.nav-tabs .nav-link.active {
+  color: #0d0d0d !important;
+  border-color: #0d0d0d !important;
+}
+
+.nav-pills .nav-link.active, 
+.nav-pills .show > .nav-link {
+  color: #fff !important;
+  background-color: #0d0d0d !important;
+}
+
+/* Tables */
+.table-primary {
+  --bs-table-bg: rgba(13, 13, 13, 0.1) !important;
+  --bs-table-striped-bg: rgba(13, 13, 13, 0.15) !important;
+  --bs-table-active-bg: rgba(13, 13, 13, 0.2) !important;
+  --bs-table-hover-bg: rgba(13, 13, 13, 0.15) !important;
+  color: #0d0d0d !important;
+}
+
+/* Dropdown hover effects */
+.dropdown-item:hover, .dropdown-item:focus {
+  color: #0d0d0d !important;
+  background-color: rgba(13, 13, 13, 0.1) !important;
+}
+
+/* Focus styles */
+.form-control:focus {
+  border-color: #0d0d0d !important;
+  box-shadow: 0 0 0 0.25rem rgba(13, 13, 13, 0.25) !important;
+}
+
+/* Alert styles */
+.alert-primary {
+  background-color: rgba(13, 13, 13, 0.1) !important;
+  border-color: rgba(13, 13, 13, 0.2) !important;
+  color: #0d0d0d !important;
+}

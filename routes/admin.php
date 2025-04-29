@@ -135,7 +135,12 @@ Route::middleware('throttle:60,1')->group(function () {
             Route::get('reports/sale-orders', [App\Http\Controllers\Admin\ReportController::class, 'saleOrders'])->name('reports.saleOrders')->middleware('permission:reports.saleOrders');
             Route::get('reports/rent-orders', [App\Http\Controllers\Admin\ReportController::class, 'rentOrders'])->name('reports.rentOrders')->middleware('permission:reports.rentOrders');
 
-
+            //parteners
+            Route::get('parteners', [App\Http\Controllers\Admin\PartenerController::class, 'index'])->name('parteners.index')->middleware('permission:parteners.view');
+            Route::get('parteners/create', [App\Http\Controllers\Admin\PartenerController::class, 'create'])->name('parteners.create')->middleware('permission:parteners.create');
+            Route::match(['PUT', 'PATCH'], 'parteners/{id}', [App\Http\Controllers\Admin\PartenerController::class, 'update'])->name('parteners.update')->middleware('permission:parteners.edit');
+            Route::get('parteners/{id}/edit', [App\Http\Controllers\Admin\PartenerController::class, 'edit'])->name('parteners.edit')->middleware('permission:parteners.edit');
+            Route::delete('parteners/{id}', [App\Http\Controllers\Admin\PartenerController::class, 'destroy'])->name('parteners.destroy')->middleware('permission:parteners.delete');
 
             //addnewrouteheredontdeletemeplease
 

@@ -51,6 +51,11 @@
 
     <link rel="stylesheet" type="text/css" href="{{ $assetsPath }}/css/custom.css">
     @stack('styles')
+    <style>
+        .cke_notification_warning {
+            display: none;
+        }
+    </style>
 </head>
 
 <body class="pace-done vertical-layout vertical-menu-modern navbar-floating footer-static menu-expanded" data-open="click" data-menu="vertical-menu-modern" data-col="">

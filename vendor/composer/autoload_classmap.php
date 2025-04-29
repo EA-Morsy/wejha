@@ -103,6 +103,7 @@ return array(
     'App\\Models\\Company' => $baseDir . '/app/Models/Company.php',
     'App\\Models\\Contact' => $baseDir . '/app/Models/Contact.php',
     'App\\Models\\Coupon' => $baseDir . '/app/Models/Coupon.php',
+    'App\\Models\\Partener' => $baseDir . '/app/Models/Partener.php',
     'App\\Models\\Permissions' => $baseDir . '/app/Models/Permissions.php',
     'App\\Models\\Rate' => $baseDir . '/app/Models/Rate.php',
     'App\\Models\\ResetCodePassword' => $baseDir . '/app/Models/ResetCodePassword.php',
