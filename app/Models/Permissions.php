@@ -48,6 +48,49 @@ class Permissions extends Model
             'parteners.delete' => __('roles.permissions.parteners_delete'),
             'parteners.edit'   => __('roles.permissions.parteners_edit'),
 
+            //businesses
+            'solutions.create' => __('roles.permissions.solutions_create'),
+            'solutions.view'   => __('roles.permissions.solutions_view'),
+            'solutions.delete' => __('roles.permissions.solutions_delete'),
+            'solutions.edit'   => __('roles.permissions.solutions_edit'),
+            
+            //solution_types
+            'solution_types.create' => __('roles.permissions.solution_types_create'),
+            'solution_types.view'   => __('roles.permissions.solution_types_view'),
+            'solution_types.delete' => __('roles.permissions.solution_types_delete'),
+            'solution_types.edit'   => __('roles.permissions.solution_types_edit'),
+
+            //industries
+            'industries.create' => __('roles.permissions.industries_create'),
+            'industries.view'   => __('roles.permissions.industries_view'),
+            'industries.delete' => __('roles.permissions.industries_delete'),
+            'industries.edit'   => __('roles.permissions.industries_edit'),
+
+            //articles
+            'articles.create' => __('roles.permissions.articles_create'),
+            'articles.view'   => __('roles.permissions.articles_view'),
+            'articles.delete' => __('roles.permissions.articles_delete'),
+            'articles.edit'   => __('roles.permissions.articles_edit'),
+
+            //pages
+            'pages.create' => __('roles.permissions.pages_create'),
+            'pages.view'   => __('roles.permissions.pages_view'),
+            'pages.delete' => __('roles.permissions.pages_delete'),
+            'pages.edit'   => __('roles.permissions.pages_edit'),
+
+            //sections
+            'sections.create' => __('roles.permissions.sections_create'),
+            'sections.view'   => __('roles.permissions.sections_view'),
+            'sections.delete' => __('roles.permissions.sections_delete'),
+            'sections.edit'   => __('roles.permissions.sections_edit'),
+
+            //products
+            'products.create' => __('roles.permissions.products_create'),
+            'products.view'   => __('roles.permissions.products_view'),
+            'products.delete' => __('roles.permissions.products_delete'),
+            'products.edit'   => __('roles.permissions.products_edit'),
+          
+            
             // Dashboard
             'dashboard.view' => __('roles.permissions.dashboard_view'),
 

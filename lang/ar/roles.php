@@ -79,7 +79,20 @@ return [
         'posts_manage'        => 'ادارة المقالات',
         'user_questions_manage' => 'ادارة سؤال وجواب',
         'sliders_manage'        => 'ادارة السلايدر',
-
+        'industries_create' => 'إضافة صناعة',
+        'industries_view'   => 'عرض الصناعات',
+        'industries_delete' => 'حذف صناعة',
+        'industries_edit'   => 'تعديل صناعة',
+        
+        'solutions_create' => 'إضافة حل',
+        'solutions_view'   => 'عرض الحلول',
+        'solutions_delete' => 'حذف حل',
+        'solutions_edit'   => 'تعديل حل',
+        
+        'solution_types_create' => 'إضافة نوع حل',
+        'solution_types_view'   => 'عرض أنواع الحلول',
+        'solution_types_delete' => 'حذف نوع حل',
+        'solution_types_edit'   => 'تعديل نوع حل',
     ],
     'slug' => 'الاسم',
     'display_name' => 'اسم الصلاحية',

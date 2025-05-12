@@ -119,22 +119,21 @@ class CompanyController extends Controller
     {
         $data = Company::select('*');
         return FacadesDataTables::of($data)
-        ->addIndexColumn()
-        ->addColumn('photo', function ($item) {
-            return '<img src="' . $item->photo . '" height="100px" width="100px">';
-        })
-        ->editColumn('active', function ($item) {
-            return $item->active==1 ? '<button class="btn btn-sm btn-outline-success me-1 waves-effect"><i data-feather="check" ></i></button>':'<button class="btn btn-sm btn-outline-danger me-1 waves-effect"><i data-feather="x" ></i></button>';
-        })
-        ->filterColumn('title', function ($query, $keyword) {
-                 if(App::isLocale('en')) {
-                     return $query->where('title_en', 'like', '%'.$keyword.'%');
-                 } else {
-                     return $query->where('title_ar', 'like', '%'.$keyword.'%');
-                 }
-             })
-        ->rawColumns(['photo','active'])
-        ->make(true);
+            ->addIndexColumn()
+            ->editColumn('is_active', function ($item) {
+                return $item->is_active == 1
+                    ? '<span class="badge bg-success">'.__('companies.status.active').'</span>'
+                    : '<span class="badge bg-secondary">'.__('companies.status.inactive').'</span>';
+            })
+            ->addColumn('logo', function ($item) {
+                if ($item->logo) {
+                    return '<img src="'.asset($item->logo).'" style="max-width:60px;max-height:40px;border-radius:6px;border:1px solid #eee;">';
+                }
+                $default = asset('assets/admin/images/default-logo.png');
+                return '<img src="'.$default.'" style="max-width:60px;max-height:40px;border-radius:6px;border:1px solid #eee;opacity:.6;">';
+            })
+            ->rawColumns(['is_active','logo'])
+            ->make(true);
     }
     
 }

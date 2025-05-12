@@ -100,7 +100,7 @@
     </div>
 </nav>
 
-@include('admin.partials.sidebar')
+@include('admin.pages.partials.sidebar')
 
 
 <div class="app-content content ">
@@ -111,7 +111,7 @@
         </div>
         <div class="content-body">
             @include('flash::message')
-            @include('admin.partials.errors')
+            @include('admin.pages.partials.errors')
 
             @yield('content')
         </div>

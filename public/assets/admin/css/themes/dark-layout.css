@@ -435,7 +435,7 @@ body.dark-layout {
 
 .dark-layout .pagination:not([class*='pagination-']) .page-item .page-link {
   background-color: #242b3d;
-  color: #b4b7bd; }
+  color: #b4b7bd!important; }
 
 .dark-layout .pagination:not([class*='pagination-']) .page-item .page-link:hover {
   color: #7367f0; }

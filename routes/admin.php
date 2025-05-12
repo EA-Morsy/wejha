@@ -135,16 +135,101 @@ Route::middleware('throttle:60,1')->group(function () {
             Route::get('reports/sale-orders', [App\Http\Controllers\Admin\ReportController::class, 'saleOrders'])->name('reports.saleOrders')->middleware('permission:reports.saleOrders');
             Route::get('reports/rent-orders', [App\Http\Controllers\Admin\ReportController::class, 'rentOrders'])->name('reports.rentOrders')->middleware('permission:reports.rentOrders');
 
+            // Businesses CRUD
+            
+            Route::get('solutions', [\App\Http\Controllers\Admin\SolutionController::class, 'index'])->name('solutions.index');
+            Route::get('solutions/create', [\App\Http\Controllers\Admin\SolutionController::class, 'create'])->name('solutions.create');
+            Route::post('solutions', [\App\Http\Controllers\Admin\SolutionController::class, 'store'])->name('solutions.store');
+            Route::get('solutions/{id}/edit', [\App\Http\Controllers\Admin\SolutionController::class, 'edit'])->name('solutions.edit');
+            Route::put('solutions/{id}', [\App\Http\Controllers\Admin\SolutionController::class, 'update'])->name('solutions.update');
+            Route::delete('solutions/{id}', [\App\Http\Controllers\Admin\SolutionController::class, 'destroy'])->name('solutions.destroy');
+            Route::get('solutions/list', [\App\Http\Controllers\Admin\SolutionController::class, 'list'])->name('solutions.list');
+    
+            // Solution Types CRUD
+            Route::get('solution-types', [\App\Http\Controllers\Admin\SolutionTypeController::class, 'index'])->name('solution-types.index')->middleware('permission:solution_types.view');
+            Route::get('solution-types/create', [\App\Http\Controllers\Admin\SolutionTypeController::class, 'create'])->name('solution-types.create')->middleware('permission:solution_types.create');
+            Route::post('solution-types', [\App\Http\Controllers\Admin\SolutionTypeController::class, 'store'])->name('solution-types.store')->middleware('permission:solution_types.create');
+            Route::get('solution-types/{id}/edit', [\App\Http\Controllers\Admin\SolutionTypeController::class, 'edit'])->name('solution-types.edit')->middleware('permission:solution_types.edit');
+            Route::put('solution-types/{id}', [\App\Http\Controllers\Admin\SolutionTypeController::class, 'update'])->name('solution-types.update')->middleware('permission:solution_types.edit');
+            Route::delete('solution-types/{id}', [\App\Http\Controllers\Admin\SolutionTypeController::class, 'destroy'])->name('solution-types.destroy')->middleware('permission:solution_types.delete');
+            Route::get('solution-types/list', [\App\Http\Controllers\Admin\SolutionTypeController::class, 'list'])->name('solution-types.list')->middleware('permission:solution_types.view');
+            Route::get('solution-types/select', [\App\Http\Controllers\Admin\SolutionTypeController::class, 'select'])->name('solution-types.select');
+            
+            Route::get('products/list', [App\Http\Controllers\Admin\ProductController::class, 'list'])->name('products.list')->middleware('permission:products.view');
+            Route::post('products', [App\Http\Controllers\Admin\ProductController::class, 'store'])->name('products.store')->middleware('permission:products.create');
+            Route::delete('products/{id}', [App\Http\Controllers\Admin\ProductController::class, 'destroy'])->name('products.destroy')->middleware('permission:products.delete');
+            Route::get('products', [App\Http\Controllers\Admin\ProductController::class, 'index'])->name('products.index')->middleware('permission:products.view');
+            Route::get('products/create', [App\Http\Controllers\Admin\ProductController::class, 'create'])->name('products.create')->middleware('permission:products.create');
+            Route::match(['PUT', 'PATCH'], 'products/{id}', [App\Http\Controllers\Admin\ProductController::class, 'update'])->name('products.update')->middleware('permission:products.edit');
+            Route::get('products/{id}/edit', [App\Http\Controllers\Admin\ProductController::class, 'edit'])->name('products.edit')->middleware('permission:products.edit');
+
+            // Industries routes
+            Route::prefix('industries')->name('industries.')->group(function () {
+                Route::get('/', [\App\Http\Controllers\Admin\IndustryController::class, 'index'])->name('index');
+                Route::get('/list', [\App\Http\Controllers\Admin\IndustryController::class, 'list'])->name('list');
+                Route::get('/create', [\App\Http\Controllers\Admin\IndustryController::class, 'create'])->name('create');
+                Route::post('/', [\App\Http\Controllers\Admin\IndustryController::class, 'store'])->name('store');
+                Route::get('/{id}/edit', [\App\Http\Controllers\Admin\IndustryController::class, 'edit'])->name('edit');
+                Route::put('/{id}', [\App\Http\Controllers\Admin\IndustryController::class, 'update'])->name('update');
+                Route::delete('/{id}', [\App\Http\Controllers\Admin\IndustryController::class, 'destroy'])->name('destroy');
+            });
+
             //parteners
             Route::get('parteners', [App\Http\Controllers\Admin\PartenerController::class, 'index'])->name('parteners.index')->middleware('permission:parteners.view');
             Route::get('parteners/create', [App\Http\Controllers\Admin\PartenerController::class, 'create'])->name('parteners.create')->middleware('permission:parteners.create');
+            Route::post('parteners', [App\Http\Controllers\Admin\PartenerController::class, 'store'])->name('parteners.store')->middleware('permission:parteners.create');
             Route::match(['PUT', 'PATCH'], 'parteners/{id}', [App\Http\Controllers\Admin\PartenerController::class, 'update'])->name('parteners.update')->middleware('permission:parteners.edit');
             Route::get('parteners/{id}/edit', [App\Http\Controllers\Admin\PartenerController::class, 'edit'])->name('parteners.edit')->middleware('permission:parteners.edit');
             Route::delete('parteners/{id}', [App\Http\Controllers\Admin\PartenerController::class, 'destroy'])->name('parteners.destroy')->middleware('permission:parteners.delete');
-
+            Route::get('parteners/list', [App\Http\Controllers\Admin\PartenerController::class, 'list'])->name('parteners.list')->middleware('permission:parteners.view');
             //addnewrouteheredontdeletemeplease
 
+            // Articles Module
+            Route::prefix('articles')->name('articles.')->middleware('can:articles.view')->group(function () {
+                Route::get('/', [\App\Http\Controllers\Admin\ArticleController::class, 'index'])->name('index');
+                Route::get('/list', [\App\Http\Controllers\Admin\ArticleController::class, 'list'])->name('list');
+                Route::get('/create', [\App\Http\Controllers\Admin\ArticleController::class, 'create'])->middleware('can:articles.create')->name('create');
+                Route::post('/store', [\App\Http\Controllers\Admin\ArticleController::class, 'store'])->middleware('can:articles.create')->name('store');
+                Route::get('/edit/{id}', [\App\Http\Controllers\Admin\ArticleController::class, 'edit'])->middleware('can:articles.edit')->name('edit');
+                Route::post('/update/{id}', [\App\Http\Controllers\Admin\ArticleController::class, 'update'])->middleware('can:articles.edit')->name('update');
+                Route::delete('/destroy/{id}', [\App\Http\Controllers\Admin\ArticleController::class, 'destroy'])->middleware('can:articles.delete')->name('destroy');
+                Route::get('/search', [\App\Http\Controllers\Admin\ArticleController::class, 'search'])->name('search');
+            });
 
+            // Pages Module
+            Route::prefix('pages')->name('pages.')->middleware('can:pages.view')->group(function () {
+                Route::get('/', [App\Http\Controllers\Admin\PageController::class, 'index'])->name('index')->middleware('permission:pages.view');
+                Route::get('/list', [App\Http\Controllers\Admin\PageController::class, 'list'])->name('list')->middleware('permission:pages.view');
+                Route::get('/create', [App\Http\Controllers\Admin\PageController::class, 'create'])->name('create')->middleware('permission:pages.create');
+                Route::post('/store', [App\Http\Controllers\Admin\PageController::class, 'store'])->name('store')->middleware('permission:pages.create');
+                Route::get('/edit/{id}', [App\Http\Controllers\Admin\PageController::class, 'edit'])->name('edit')->middleware('permission:pages.edit');
+                Route::post('/update/{id}', [App\Http\Controllers\Admin\PageController::class, 'update'])->name('update')->middleware('permission:pages.edit');
+                Route::delete('/destroy/{id}', [App\Http\Controllers\Admin\PageController::class, 'destroy'])->name('destroy')->middleware('permission:pages.delete');
+                Route::get('/show/{id}', [App\Http\Controllers\Admin\PageController::class, 'show'])->name('show')->middleware('permission:pages.view');
+
+                // دعم البحث عن المقالات من خلال المسار المطلوب من الواجهة
+                Route::get('articles/search', [\App\Http\Controllers\Admin\ArticleController::class, 'search']);
+
+                // Sections Module (Nested under Pages)
+                Route::prefix('{page_id}/sections')->name('sections.')->middleware('can:sections.view')->group(function () {
+                    Route::get('/', [App\Http\Controllers\Admin\SectionController::class, 'index'])->name('index')->middleware('permission:sections.view');
+                    Route::get('/create', [App\Http\Controllers\Admin\SectionController::class, 'create'])->name('create')->middleware('permission:sections.create');
+                    Route::post('/store', [App\Http\Controllers\Admin\SectionController::class, 'store'])->name('store')->middleware('permission:sections.create');
+                    Route::get('/edit/{id}', [App\Http\Controllers\Admin\SectionController::class, 'edit'])->name('edit')->middleware('permission:sections.edit');
+                    Route::post('/update/{id}', [App\Http\Controllers\Admin\SectionController::class, 'update'])->name('update')->middleware('permission:sections.edit');
+                    Route::delete('/destroy/{id}', [App\Http\Controllers\Admin\SectionController::class, 'destroy'])->name('destroy')->middleware('permission:sections.delete');
+                    Route::get('/show/{id}', [App\Http\Controllers\Admin\SectionController::class, 'show'])->name('show')->middleware('permission:sections.view');
+                    Route::get('/list', [App\Http\Controllers\Admin\SectionController::class, 'list'])->name('list')->middleware('permission:sections.view');
+                    Route::post('/sort', [App\Http\Controllers\Admin\SectionController::class, 'sort'])->name('sort');
+
+                    // إدارة عناصر السكشن
+                    Route::prefix('{section}/items')->name('items.')->group(function () {
+                        Route::post('/', [\App\Http\Controllers\Admin\SectionItemController::class, 'store'])->name('store');
+                        Route::delete('/{item}', [\App\Http\Controllers\Admin\SectionItemController::class, 'destroy'])->name('destroy');
+                        Route::post('/sort', [\App\Http\Controllers\Admin\SectionItemController::class, 'sort'])->name('sort');
+                    });
+                });
+            });
         });
     });
 });

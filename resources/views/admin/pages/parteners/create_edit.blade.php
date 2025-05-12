@@ -21,49 +21,53 @@
             <div class="content-header-right text-md-end col-md-6 col-12 d-md-block d-none">
                 <div class="mb-1 breadcrumb-right">
                     <div class="dropdown">
-                        <button class="btn btn-sm btn-outline-primary me-1 waves-effect">
-                            <i data-feather="save"></i>
-                            <span class="active-sorting text-primary">{{ __('cities.actions.save') }}</span>
-                        </button>
                     </div>
                 </div>
             </div>
         </div>
         <div class="content-body">
-            <div class="card">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="mb-1 col-md-4  @error('name') is-invalid @enderror">
-                            <label class="form-label" for="name">{{ __('admin.name') }}</label>
-                            <input type="text" name="name" id="name" class="form-control" placeholder=""
-                                   value="{{ $item->name ?? old('name') }}" required/>
-                            @error('name')
-                            <span class="error">{{ $message }}</span>
-                            @enderror
-                        </div>
-                        <div class="mb-1 col-md-4  @error('logo') is-invalid @enderror">
-                            <label class="form-label" for="logo">{{ __('admin.logo') }}</label>
-                            <input type="file" name="logo" id="logo" class="form-control" placeholder=""
-                                   value="{{ $item->logo ?? old('logo') }}" required/>
-                            @error('logo')
-                            <span class="error">{{ $message }}</span>
-                            @enderror
-                        </div>
-
-                        <div class="mb-1 col-md-2  @error('is_active') is-invalid @enderror">
-                            <br>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="is_active"
-                                        value="1" id="is_active"
-                                    @checked($item->is_active ?? false )/>
-                                <label class="form-check-label" for="is_active">{{ __('parteners.is_active') }}</label>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card shadow-sm mb-2">
+                        <div class="card-body">
+                            <div class="row g-4 align-items-start">
+                                <div class="col-md-7">
+                                    <label class="form-label fw-bold" for="name">{{ __('admin.name') }} <span class="text-danger">*</span></label>
+                                    <input type="text" name="name" id="name" class="form-control" placeholder="أدخل اسم الشريك" value="{{ $item->name ?? old('name') }}" required/>
+                                    @error('name')
+                                    <span class="error">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <div class="col-md-5 d-flex flex-column align-items-center">
+                                    <x-image-uploader 
+                                        name="logo"
+                                        :current="isset($item) ? $item->logo : null"
+                                        label="{{ __('admin.logo') }}"
+                                    />
+                                    <small class="text-muted mt-1">يمكنك رفع شعار الشريك (اختياري)</small>
+                                    @error('logo')
+                                    <span class="error">{{ $message }}</span>
+                                    @enderror
+                                </div>
                             </div>
-                            @error('is_active')
-                            <span class="error">{{ $message }}</span>
-                            @enderror
+                            <div class="row mt-4 align-items-center">
+                                <div class="col-md-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="is_active" value="1" id="is_active" @checked($item->is_active ?? false )/>
+                                        <label class="form-check-label fw-bold" for="is_active">{{ __('parteners.is_active') }}</label>
+                                    </div>
+                                    @error('is_active')
+                                    <span class="error">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <div class="col-md-6 text-end">
+                                    <button class="btn btn-primary px-4" type="submit">
+                                        <i data-feather="save"></i>
+                                        {{ __('parteners.actions.save') }}
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-
-
                     </div>
                 </div>
             </div>

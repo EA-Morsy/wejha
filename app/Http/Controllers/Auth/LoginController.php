@@ -42,4 +42,13 @@ class LoginController extends Controller
     {
         return 'phone';
     }
+    
+    protected function sendFailedLoginResponse(\Illuminate\Http\Request $request)
+    {
+        return redirect()->back()
+            ->withInput($request->only('email', 'remember'))
+            ->withErrors([
+                'auth' => __('بيانات الدخول غير صحيحة. يرجى التحقق من البريد الإلكتروني وكلمة المرور'),
+            ]);
+    }
 }

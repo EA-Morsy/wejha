@@ -3,7 +3,7 @@
 namespace App\Services;
 
 use App\Models\Branch;
-use App\Models\Business;
+use App\Models\Solution;
 use App\Models\Setting;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;

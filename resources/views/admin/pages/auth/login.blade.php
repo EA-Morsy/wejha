@@ -13,6 +13,34 @@
                         <h2 class="col-md-12 text-center text-light mb-4">{{__('portal.wejha')}}</h2>
                         <form class="auth-login-form mt-2" action="{{ route('admin.postLogin') }}" method="POST">
                             @csrf
+                            
+                            @if (session()->has('error') || session()->has('errors') || count($errors) > 0)
+                                <div class="alert alert-warning" style="background:#333;color:#fff;font-size:13px">
+                                    <strong>Debug Info:</strong>
+                                    <ul style="margin-bottom:0">
+                                        @foreach (session()->all() as $key => $val)
+                                            <li><b>{{ $key }}:</b> {{ is_array($val) ? json_encode($val) : $val }}</li>
+                                        @endforeach
+                                        @if ($errors && count($errors) > 0)
+                                            @foreach ($errors->all() as $err)
+                                                <li style="color:#ff4d4f">Error: {{ $err }}</li>
+                                            @endforeach
+                                        @endif
+                                    </ul>
+                                </div>
+                            @endif
+
+                            @if(session('error'))
+                            <div class="alert alert-danger text-white mb-3" role="alert" style="background-color: #ff4d4f; border-color: #ff4d4f; color: white; font-weight: 500; font-size: 14px; border-radius: 5px;">
+                                <i class="fas fa-exclamation-circle me-2"></i>{{ session('error') }}
+                            </div>
+                            @endif
+                            
+                            @if($errors->has('auth'))
+                            <div class="alert mb-3" role="alert" style="background-color: #ff4d4f; border-color: #ff4d4f; color: white; font-weight: 500; font-size: 14px; border-radius: 5px;">
+                                <i class="fas fa-exclamation-circle me-2"></i>{{ $errors->first('auth') }}
+                            </div>
+                            @endif
                             <div class="mb-3 @error('email') is-invalid @enderror">
 
                                 <label for="login-email" class="form-label text-light">{{ __('admin.email') }}</label>

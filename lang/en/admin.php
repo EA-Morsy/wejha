@@ -146,6 +146,5 @@ return [
     'register' => 'Register',
     'coupons' => 'Couponat',
     'cities' => 'cities',
-
-
+    'industries' => 'Industries',
 ];

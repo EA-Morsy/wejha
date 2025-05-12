@@ -93,17 +93,21 @@ class SliderController extends Controller
         $data = Slider::select('*');
         return FacadesDataTables::of($data)
             ->addIndexColumn()
-            ->addColumn('photo', function ($item) {
-                return '<img src="' . $item->photo . '" height="100px" width="100px">';
+            ->addColumn('image', function ($item) {
+                if ($item->image) {
+                    return '<img src="'.asset($item->image).'" style="max-width:60px;max-height:40px;border-radius:6px;border:1px solid #eee;">';
+                }
+                $default = asset('assets/admin/images/default-logo.png');
+                return '<img src="'.$default.'" style="max-width:60px;max-height:40px;border-radius:6px;border:1px solid #eee;opacity:.6;">';
             })
-             ->filterColumn('title', function ($query, $keyword) {
+            ->filterColumn('title', function ($query, $keyword) {
                  if(App::isLocale('en')) {
                      return $query->where('title_en', 'like', '%'.$keyword.'%');
                  } else {
                      return $query->where('title_ar', 'like', '%'.$keyword.'%');
                  }
              })
-            ->rawColumns(['photo'])
+            ->rawColumns(['image'])
             ->make(true);
     }
 }

@@ -79,7 +79,10 @@ return [
         'posts_manage'        => 'Article management',
         'user_questions_manage' => 'Question and answer management',
         'sliders_manage'        => 'Slider management',
-
+        'industries_create' => 'Add Industry',
+        'industries_view'   => 'View Industries',
+        'industries_delete' => 'Delete Industry',
+        'industries_edit'   => 'Edit Industry',
     ],
     'slug' => 'the name',
     'display_name' => 'Authorization name',

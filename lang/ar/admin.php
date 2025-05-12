@@ -150,6 +150,16 @@ return [
     'events' => 'الفعاليات',
     'event' => 'الحدث',
     'update' => 'تعديل',
-
-
+    'logo' => 'اللوجو',
+    'parteners' => 'الشركاء',
+    'industries' => 'الصناعات',
+    'dashboard' => 'لوحة التحكم',
+    'pages' => 'إدارة الصفحات',
+    'categories' => 'التصنيفات',
+    'sliders' => 'السلايدر',
+    'users' => 'المستخدمين',
+    'roles' => 'الصلاحيات',
+    'businesses' => 'النشاطات',
+    'sections' => 'الأقسام',
+    'articles' => 'المقالات',
 ];
